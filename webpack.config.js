@@ -6,8 +6,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
-        publicPath: '/',
+        filename: '/react-shop/bundle.js',
+        publicPath: '/react-shop',
     },
     mode: 'production',
     resolve: {
