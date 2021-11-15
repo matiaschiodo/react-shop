@@ -6,6 +6,11 @@ nav {
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
     align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: #ffffff;
+    left: 0;
+    right: 0;
 }
 .menu {
     height: 24px;
@@ -14,6 +19,7 @@ nav {
 }
 .nav-logo {
     width: 100px;
+    margin: auto 0;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -47,9 +53,11 @@ nav {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    cursor: pointer;
 }
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 .navbar-shopping-cart div {
     width: 16px;

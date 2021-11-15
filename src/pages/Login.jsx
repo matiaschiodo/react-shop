@@ -31,7 +31,7 @@ const Login = () => {
                     >
 						Log in
 					</button>
-					<a href="/">Forgot my password</a>
+					<a href="/send-email">Forgot my password</a>
 				</form>
 				<button
 					className="secondary-button signup-button"

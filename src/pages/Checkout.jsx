@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderItem from '../components/OrderItem';
-import Menu from '../components/Menu';
 import '../styles/Checkout.scss';
+import arrow from '@icons/flechita.svg';
+import AppContext from '../context/AppContext';
 
-const Checkout = () => {
+const Checkout = ({ setToggle }) => {
+	const { state } = useContext(AppContext);
+	const today = new Date(Date.now()).toLocaleString().split(', ')[0];
 	return (
 		<div className="Checkout">
 			<div className="Checkout-container">
-				<h1 className="title">My order</h1>
+				<div className="title-container" onClick={() => setToggle(false)}>
+					<img src={arrow} alt="arrow" />
+					<h1 className="title">My order</h1>
+				</div>
 				<div className="Checkout-content">
 					<div className="order">
 						<p>
-							<span>03.25.21</span>
-							<span>6 articles</span>
+							<span>{today}</span>
+							<span>{state.cart.length} articles</span>
 						</p>
-						<p>$560.00</p>
+						<p>${state.total}</p>
 					</div>
 				</div>
-				<OrderItem />
+				{state.cart.map((product) => (
+					<OrderItem
+						product={product}
+						key={`orderItem-${product.id}`}
+					/>
+				))}
 			</div>
 		</div>
 	);

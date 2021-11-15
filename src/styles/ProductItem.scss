@@ -1,5 +1,8 @@
 @use './vars';
 
+.productImage {
+	cursor: pointer;
+}
 .ProductItem {
 	width: 240px;
 }
@@ -33,6 +36,9 @@
 	margin-top: 0;
 	margin-bottom: 0;
 	color: var(--very-light-pink);
+}
+figure {
+	cursor: pointer;
 }
 @media (max-width: 640px) {
 	.cards-container {

@@ -3,22 +3,32 @@
 .ProductDetail {
     width: 360px;
     padding-bottom: 24px;
-    position: absolute;
+    position: fixed;
+    top: 60px;
     right: 0;
+    bottom: auto;
+    background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid var(--very-light-pink);
+	animation: swipeLeft 0.26s ease;
 }
 .ProductDetail-close {
     background: var(--white);
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     top: 24px;
     left: 24px;
     z-index: 2;
-    padding: 12px;
+    padding: 5px;
     border-radius: 50%;
 }
 .ProductDetail-close:hover {
     cursor: pointer;
+}
+.ProductDetail img {
+    height: 20px;
+    width: 20px;
 }
 .ProductDetail > img:nth-child(2) {
     width: 100%;
@@ -29,5 +39,27 @@
 @media (max-width: 640px) {
     .ProductDetail {
         width: 100%;
+        bottom: 0;
     }
+}
+@keyframes swipeLeft {
+	0% {
+	  width: 0;
+	}
+	100% {
+	  width: 360px;
+	}
+  }
+@media (max-width: 640px) {
+	.MyOrder {
+		width: 100%;
+	}
+	@keyframes swipeLeft {
+		0% {
+		  width: 0;
+		}
+		100% {
+		  width: 100%;
+		}
+	  }
 }

@@ -1,19 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../styles/ProductItem.scss';
 import AppContext from '../context/AppContext';
+import ProductDetail from '../containers/ProductDetail';
 
 import addToCartImage from '@icons/bt_add_to_cart.svg';
+import addedToCartImage from '@icons/bt_added_to_cart.svg'
 
 const ProductItem = ({ product }) => {
-	const { addToCart } = useContext(AppContext);
+	const [ toggleProduct, setToggleProduct ] = useState(false);
+	const { state, addToCart } = useContext(AppContext);
 
 	const handleClick = (item) => {
-		addToCart(item);
+		if(state.cart.includes(item)) {
+			return;
+		} else {
+			addToCart(item);
+		}
+	}
+
+	const verifyAdded = (item) => {
+		if(state.cart.includes(item)) {
+			return addedToCartImage;
+		} else {
+			return addToCartImage;
+		}
 	}
 
 	return (
 		<div className="ProductItem">
-			<img src={product.images[0]} loading="lazy" alt={product.title} />
+			<img
+				src={product.images[0]}
+				loading="lazy" alt={product.title} className="productImage"
+				onClick={() => setToggleProduct(!toggleProduct)}
+			/>
 			<div className="product-info">
 				<div>
 					<p>${product.price}</p>
@@ -22,9 +41,14 @@ const ProductItem = ({ product }) => {
 				<figure
 					onClick={() => handleClick(product)}
 				>
-					<img src={addToCartImage} alt="" />
+					<img src={verifyAdded(product)}/>
 				</figure>
 			</div>
+			{toggleProduct && <ProductDetail
+				product={product}
+				setToggleProduct={setToggleProduct}
+				handleClick={handleClick}
+			/>}
 		</div>
 	);
 }

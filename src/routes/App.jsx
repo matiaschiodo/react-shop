@@ -20,7 +20,7 @@ const App = () => {
 
     return (
         <AppContext.Provider value={initialState}>
-            <BrowserRouter basename="/react-shop">
+            <BrowserRouter>
                 <Layout>
                     <Routes>
                         <Route
@@ -30,7 +30,7 @@ const App = () => {
                         />
                         <Route
                             exact
-                            path="/login"
+                            path="login"
                             element={<Login/>}
                         />
                         <Route
@@ -58,7 +58,7 @@ const App = () => {
                             path="/signup"
                             element={<CreateAccount/>}
                         />
-                        <Route
+                        {/* <Route
                             exact
                             path="/checkout"
                             element={<Checkout/>}
@@ -67,7 +67,7 @@ const App = () => {
                             exact
                             path="/orders"
                             element={<Orders/>}
-                        />
+                        /> */}
                         <Route
                             path="*"
                             element={<NotFound/>}

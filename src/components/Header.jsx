@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import '@styles/Header.scss';
+import '../styles/Header.scss';
 import Menu from './Menu';
+import MobileMenu from './MobileMenu';
 import AppContext from '../context/AppContext';
 import MyOrder from '../containers/MyOrder'
 import menu from '@icons/icon_menu.svg';
@@ -8,12 +9,17 @@ import logo from '@logos/logo_yard_sale.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 
 const Header = () => {
-	const [ toggle, setToggle ] = useState(false);
+	const [ toggleDesktop, setToggleDesktop ] = useState(false);
+	const [ toggleMobile, setToggleMobile ] = useState(false);
 	const [ toggleOrders, setToggleOrders ] = useState(false);
 	const { state:{cart} } = useContext(AppContext);
 
-	const handleClick = () => {
-		setToggle(!toggle);
+	const handleClickDesktop = () => {
+		setToggleDesktop(!toggleDesktop);
+	}
+
+	const handleClickMobile = () => {
+		setToggleMobile(!toggleMobile);
 	}
 
 	const verifyCart = (cartNumber) => {
@@ -26,9 +32,11 @@ const Header = () => {
 
     return (
         <nav>
-			<img src={menu} alt="logo" className="menu"/>
+			<img src={menu} alt="logo" className="menu"
+				onClick={handleClickMobile}
+			/>
 			<div className="navbar-left">
-				<img src={logo} alt="logo" className="nav-logo"/>
+				<a href="/" className="nav-logo"><img src={logo} alt="logo"/></a>
 				<ul>
 					<li>
 						<a href="/">All</a>
@@ -54,9 +62,9 @@ const Header = () => {
 				<ul>
 					<li
 						className="navbar-email"
-						onClick={handleClick}
+						onClick={handleClickDesktop}
 					>
-						Matias Chiodo
+						matiaschiodo
 					</li>
 					<li
 						className="navbar-shopping-cart"
@@ -67,7 +75,8 @@ const Header = () => {
 					</li>
 				</ul>
 			</div>
-			{toggle && <Menu/>}
+			{toggleDesktop && <Menu/>}
+			{toggleMobile && <MobileMenu/>}
 			{toggleOrders &&
 				<MyOrder
 					toggleOrders={toggleOrders}
