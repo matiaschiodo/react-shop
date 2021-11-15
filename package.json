@@ -1,6 +1,8 @@
 {
+	"homepage": "https://matiaschiodo.github.io/react-shop",
 	"name": "react-shop",
 	"version": "1.0.0",
+	"private": true,
 	"description": "E-commerce React.js",
 	"main": "src/index.js",
 	"scripts": {
@@ -41,6 +43,5 @@
 		"sass": "^1.43.4",
 		"sass-loader": "^12.3.0",
 		"style-loader": "^3.3.1"
-	},
-	"homepage": "https://matiaschiodo.github.io/react-shop"
+	}
 }
