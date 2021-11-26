@@ -7,9 +7,6 @@ The code of the project is our own and in the layout, although it follows the sa
 
 The application works client-side for the most part, taking advantage of the storage in localStorage and sessionStorage of the browser, so that the app follows a flow quite similar to that of a real store with its backend.
 
-## View project :rocket:
-### [Deploy](https://matiaschiodo.github.io/react-shop/)
-
 ## Resources and Links :fountain:
 
 [Inspirational Layout](https://github.com/platzi/curso-frontend-developer-practico)
